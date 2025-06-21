@@ -3,8 +3,9 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
+    domains: ['tequila-maria-isabel.vercel.app'],
+    unoptimized: true,
     formats: ['image/webp'],
-    remotePatterns: [],
   },
   output: 'standalone',
 }

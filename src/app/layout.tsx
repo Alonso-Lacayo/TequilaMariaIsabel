@@ -8,7 +8,7 @@ const inter = Inter({
   display: 'swap',
 });
 
-const playfairDisplay = Playfair_Display({
+const playfair_display = Playfair_Display({
   subsets: ["latin"],
   variable: "--font-playfair-display",
   display: 'swap',
@@ -17,7 +17,7 @@ const playfairDisplay = Playfair_Display({
 export const metadata: Metadata = {
   title: "María Isabel Tequila",
   description: "Premium artisanal tequila crafted with tradition and excellence",
-  metadataBase: new URL('https://tequilamariaisabel.vercel.app'),
+  metadataBase: new URL('https://tequila-maria-isabel.vercel.app'),
   openGraph: {
     title: "María Isabel Tequila",
     description: "Premium artisanal tequila crafted with tradition and excellence",
@@ -34,7 +34,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${playfairDisplay.variable} font-sans antialiased bg-white`}
+        className={`${inter.variable} ${playfair_display.variable} font-sans antialiased bg-white`}
       >
         {children}
       </body>

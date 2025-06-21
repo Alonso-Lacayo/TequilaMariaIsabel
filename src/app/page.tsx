@@ -6,6 +6,9 @@ import Hero from '@/components/Hero';
 import ProductShowcase from '@/components/ProductShowcase';
 import { motion } from 'framer-motion';
 
+// Force dynamic rendering
+export const dynamic = 'force-dynamic';
+
 export default function Home() {
   return (
     <main className="relative">
@@ -53,9 +56,7 @@ export default function Home() {
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover rounded-lg"
-                onError={(e) => {
-                  console.error('Error loading image:', e);
-                }}
+                priority
               />
             </motion.div>
           </div>
