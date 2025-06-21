@@ -6,6 +6,7 @@ const nextConfig = {
     formats: ['image/webp'],
     remotePatterns: [],
   },
+  output: 'standalone',
 }
 
 module.exports = nextConfig 

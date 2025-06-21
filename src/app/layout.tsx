@@ -5,16 +5,25 @@ import "./globals.css";
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+  display: 'swap',
 });
 
 const playfairDisplay = Playfair_Display({
   subsets: ["latin"],
   variable: "--font-playfair-display",
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
   title: "María Isabel Tequila",
   description: "Premium artisanal tequila crafted with tradition and excellence",
+  metadataBase: new URL('https://tequilamariaisabel.vercel.app'),
+  openGraph: {
+    title: "María Isabel Tequila",
+    description: "Premium artisanal tequila crafted with tradition and excellence",
+    locale: "en_US",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
