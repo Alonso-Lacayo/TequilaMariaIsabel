@@ -28,10 +28,14 @@ export default function Home() {
               className="space-y-6"
             >
               <h2 className="text-2xl font-serif text-primary">DISTINGUISHED TASTE</h2>
-              <p className="text-3xl font-serif text-secondary leading-relaxed">
-                Our work is the collaboration of esteemed distillers and artists across México. 
-                María Isabel is a refined reposado. We invite you to wake her up.
-              </p>
+              <div className="space-y-6">
+                <p className="text-3xl font-serif text-secondary leading-relaxed">
+                  Our work is the collaboration of esteemed distillers and artists across México.
+                </p>
+                <p className="text-3xl font-serif text-secondary leading-relaxed">
+                  María Isabel is a refined reposado. We invite you to wake her up.
+                </p>
+              </div>
               <div>
                 <a
                   href="/contact"

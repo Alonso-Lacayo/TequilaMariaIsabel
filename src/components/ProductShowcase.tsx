@@ -53,7 +53,7 @@ export default function ProductShowcase() {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-lg text-gray-700 leading-relaxed"
+              className="text-3xl font-serif text-secondary leading-relaxed"
             >
               Rich in heritage and local tradition, María Isabel Tequila hopes to bring you and yours closer together.
             </motion.p>
