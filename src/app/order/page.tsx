@@ -110,23 +110,28 @@ export default function OrderPage() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.3 }}
+      className="min-h-screen bg-white"
+    >
       <Header />
       
-      <main className="container mx-auto px-4 py-12 mt-20">
+      <main className="container mx-auto min-h-[calc(100vh-80px)] pt-32 pb-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="max-w-3xl mx-auto"
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="max-w-3xl mx-auto px-6 sm:px-10"
         >
-          <h1 className="text-4xl font-serif text-primary text-center mb-8">Place Your Order</h1>
+          <h1 className="text-5xl font-serif text-primary text-center mb-12">Place Your Order</h1>
           
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid md:grid-cols-2 gap-6">
               {/* Company Name */}
               <div>
-                <label htmlFor="companyName" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="companyName" className="block text-base font-serif text-secondary mb-2">
                   Company name (required):
                 </label>
                 <input
@@ -136,17 +141,15 @@ export default function OrderPage() {
                   value={formData.companyName}
                   onChange={handleChange}
                   placeholder="Enter name or DBA"
-                  className={`w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-gray-900 ${
-                    errors.companyName ? 'border-red-500' : 'border-gray-300'
-                  }`}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-primary text-secondary bg-white/80 backdrop-blur-sm"
                   required
                 />
-                {errors.companyName && <FormError message={errors.companyName} />}
+                {errors.companyName && <FormError errors={[errors.companyName]} />}
               </div>
 
               {/* Email */}
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="email" className="block text-base font-serif text-secondary mb-2">
                   Email address (required):
                 </label>
                 <input
@@ -156,17 +159,15 @@ export default function OrderPage() {
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="Enter your email address"
-                  className={`w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-gray-900 ${
-                    errors.email ? 'border-red-500' : 'border-gray-300'
-                  }`}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-primary text-secondary bg-white/80 backdrop-blur-sm"
                   required
                 />
-                {errors.email && <FormError message={errors.email} />}
+                {errors.email && <FormError errors={[errors.email]} />}
               </div>
 
               {/* Purchaser Name */}
               <div>
-                <label htmlFor="purchaserName" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="purchaserName" className="block text-base font-serif text-secondary mb-2">
                   Purchaser name (required):
                 </label>
                 <input
@@ -176,17 +177,15 @@ export default function OrderPage() {
                   value={formData.purchaserName}
                   onChange={handleChange}
                   placeholder="Enter contact name"
-                  className={`w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-gray-900 ${
-                    errors.purchaserName ? 'border-red-500' : 'border-gray-300'
-                  }`}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-primary text-secondary bg-white/80 backdrop-blur-sm"
                   required
                 />
-                {errors.purchaserName && <FormError message={errors.purchaserName} />}
+                {errors.purchaserName && <FormError errors={[errors.purchaserName]} />}
               </div>
 
               {/* Phone Number */}
               <div>
-                <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="phone" className="block text-base font-serif text-secondary mb-2">
                   Phone number (required):
                 </label>
                 <input
@@ -196,17 +195,15 @@ export default function OrderPage() {
                   value={formData.phone}
                   onChange={handleChange}
                   placeholder="Enter contact phone"
-                  className={`w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-gray-900 ${
-                    errors.phone ? 'border-red-500' : 'border-gray-300'
-                  }`}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-primary text-secondary bg-white/80 backdrop-blur-sm"
                   required
                 />
-                {errors.phone && <FormError message={errors.phone} />}
+                {errors.phone && <FormError errors={[errors.phone]} />}
               </div>
 
               {/* License ID */}
               <div>
-                <label htmlFor="licenseId" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="licenseId" className="block text-base font-serif text-secondary mb-2">
                   License or permit ID number:
                 </label>
                 <input
@@ -216,13 +213,13 @@ export default function OrderPage() {
                   value={formData.licenseId}
                   onChange={handleChange}
                   placeholder="Enter license ID"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-gray-900"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-primary text-secondary bg-white/80 backdrop-blur-sm"
                 />
               </div>
 
               {/* Permit Expiration */}
               <div>
-                <label htmlFor="permitExpiration" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="permitExpiration" className="block text-base font-serif text-secondary mb-2">
                   Permit expiration date:
                 </label>
                 <input
@@ -231,14 +228,14 @@ export default function OrderPage() {
                   name="permitExpiration"
                   value={formData.permitExpiration}
                   onChange={handleChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-gray-900"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-primary text-secondary bg-white/80 backdrop-blur-sm"
                 />
               </div>
             </div>
 
             {/* Address */}
             <div>
-              <label htmlFor="address" className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="address" className="block text-base font-serif text-secondary mb-2">
                 Address including city, state, and ZIP (required):
               </label>
               <input
@@ -248,17 +245,15 @@ export default function OrderPage() {
                 value={formData.address}
                 onChange={handleChange}
                 placeholder="Enter address"
-                className={`w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-gray-900 ${
-                  errors.address ? 'border-red-500' : 'border-gray-300'
-                }`}
+                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-primary text-secondary bg-white/80 backdrop-blur-sm"
                 required
               />
-              {errors.address && <FormError message={errors.address} />}
+              {errors.address && <FormError errors={[errors.address]} />}
             </div>
 
             {/* Payment Method */}
             <div>
-              <label htmlFor="paymentMethod" className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="paymentMethod" className="block text-base font-serif text-secondary mb-2">
                 Requested payment method (required):
               </label>
               <select
@@ -266,7 +261,7 @@ export default function OrderPage() {
                 name="paymentMethod"
                 value={formData.paymentMethod}
                 onChange={handleChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-gray-900"
+                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-primary text-secondary bg-white/80 backdrop-blur-sm"
                 required
               >
                 <option value="Online payment">Online payment</option>
@@ -278,7 +273,7 @@ export default function OrderPage() {
 
             {/* Delivery Instructions */}
             <div>
-              <label htmlFor="deliveryInstructions" className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="deliveryInstructions" className="block text-base font-serif text-secondary mb-2">
                 Delivery hours and special instructions:
               </label>
               <textarea
@@ -288,32 +283,20 @@ export default function OrderPage() {
                 onChange={handleChange}
                 placeholder="Please offer specific locations, days, and times for our team to deliver our product to you."
                 rows={4}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-gray-900"
+                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-primary text-secondary bg-white/80 backdrop-blur-sm"
               />
             </div>
 
-            {/* Submit Button */}
-            <div className="flex justify-center">
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className={`px-8 py-3 bg-primary text-white font-serif text-lg rounded-md transition-colors duration-300 ${
-                  isSubmitting ? 'opacity-70 cursor-not-allowed' : 'hover:bg-primary/90'
-                }`}
-              >
-                {isSubmitting ? 'Submitting...' : 'Submit Order'}
-              </button>
-            </div>
-
-            {/* General Error Message */}
-            {errors.submit && (
-              <div className="text-center">
-                <FormError message={errors.submit} />
-              </div>
-            )}
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="w-full bg-primary text-white font-serif py-3 px-6 rounded-md hover:bg-primary/90 transition-colors duration-200 mt-8"
+            >
+              {isSubmitting ? 'Submitting...' : 'Submit Order'}
+            </button>
           </form>
         </motion.div>
       </main>
-    </div>
+    </motion.div>
   );
 } 

@@ -1,11 +1,19 @@
+import React from 'react';
+
 interface FormErrorProps {
-  message: string;
+  errors: string[];
 }
 
-export default function FormError({ message }: FormErrorProps) {
+export default function FormError({ errors }: FormErrorProps) {
+  if (!errors || errors.length === 0) return null;
+
   return (
-    <p className="text-red-500 text-sm mt-1">
-      {message}
-    </p>
+    <div className="bg-red-50 border border-red-200 text-red-800 rounded-md p-4">
+      <ul className="list-disc list-inside space-y-1">
+        {errors.map((error, index) => (
+          <li key={index}>{error}</li>
+        ))}
+      </ul>
+    </div>
   );
 } 
