@@ -3,11 +3,21 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: ['tequila-maria-isabel.vercel.app'],
-    unoptimized: true,
-    formats: ['image/webp'],
+    remotePatterns: [],
+    unoptimized: true
   },
   output: 'standalone',
+  typescript: {
+    ignoreBuildErrors: false
+  },
+  eslint: {
+    ignoreDuringBuilds: false
+  },
+  trailingSlash: false,
+  basePath: '',
+  experimental: {
+    appDir: true
+  }
 }
 
 module.exports = nextConfig 
